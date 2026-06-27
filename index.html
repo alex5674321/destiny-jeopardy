@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Destiny Jeopardy</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="styles-media.css"></head>
+<body>
+<div class="stars"></div>
+<header><button class="brand" id="home"><span class="ghost">◆</span><span><b>DESTINY</b><small>JEOPARDY</small></span></button>
+<div id="bg-controls" class="bg-controls"></div>
+<nav><button class="btn ghost-btn" id="reset">Reset game</button><button class="btn gold" id="edit">Edit game</button></nav></header>
+<main>
+<section id="game">
+  <div class="hero"><div><p class="eyebrow">Game in progress</p><h1 id="game-title"></h1></div><p>Choose a category and a Lumen value.</p></div>
+  <div class="board-scroll"><div id="board" class="board"></div></div>
+  <div class="score-title"><b>Scores</b><span>Use + and − during the game</span></div>
+  <div id="scores" class="scores"></div>
+</section>
+<section id="editor" class="hidden">
+  <div class="hero"><div><p class="eyebrow">Setup</p><h1>Build your game</h1><p>Changes are saved automatically in this browser.</p></div><button class="btn gold big" id="play">Play now →</button></div>
+  <article class="card"><div class="section-head"><i>01</i><div><h2>Game details</h2><p>The title your players will see.</p></div></div><label>Title<input id="title" maxlength="70"></label></article>
+  <article class="card"><div class="section-head"><i>02</i><div><h2>Players</h2><p>Add players or teams.</p></div></div><div id="player-list" class="list"></div><button class="btn add" id="add-player">＋ Add player</button></article>
+  <article class="card"><div class="section-head"><i>03</i><div><h2>Categories and clues</h2><p>Each clue becomes a board tile.</p></div></div><div id="category-list" class="categories"></div><div class="category-actions"><button class="btn add" id="add-category">＋ Add category</button><button class="btn add music-add" id="add-music-category">♪ Add music category</button></div></article>
+  <article class="card"><div class="section-head"><i>04</i><div><h2>Background music</h2><p>Tracks are loaded from the <strong>vibing</strong> folder.</p></div></div><div id="vibing-playlist" class="vibing-playlist"></div><button class="btn add" id="refresh-vibing">↻ Reload vibing playlist</button></article>
+  <div class="data"><button id="export">Export backup</button><label>Import backup<input id="import" type="file" accept=".json"></label></div>
+</section>
+</main>
+<dialog id="clue"><div id="dialog-bg-controls" class="bg-controls dialog-bg-controls"></div><button class="close" id="close">×</button><p class="eyebrow" id="clue-category"></p><div class="value"><img class="dialog-lumen-icon" src="assets/lumen.png" alt="Lumen"><b id="clue-value"></b></div><div id="clue-media" class="clue-media hidden"><div id="image-stage" class="image-stage hidden"><img id="clue-image" alt="Clue image"><div id="image-answer-overlay" class="image-answer-overlay hidden"></div></div><div id="audio-stage" class="audio-stage hidden"><span>♪ Audio clue</span><audio id="clue-audio" controls controlsList="nodownload noplaybackrate" aria-label="Untitled audio clue"></audio></div></div><p id="clue-question" class="question"></p><div id="answer-box" class="answer hidden"><span>Answer</span><b id="clue-answer"></b><img id="answer-image" class="answer-image hidden" alt="Answer image"></div><section id="dialog-scoreboard" class="dialog-scoreboard"><div class="dialog-score-title"><b>Live scores</b><span>Correct / incorrect: <strong id="active-score-value"></strong> points</span></div><div id="dialog-scores" class="dialog-scores"></div></section><div class="dialog-actions"><button class="btn answer-btn" id="reveal">Reveal answer</button><button class="btn gold hidden" id="finish">Back to board</button></div></dialog>
+<div id="toast" class="toast"></div><script src="app.js"></script>
+</body></html>
